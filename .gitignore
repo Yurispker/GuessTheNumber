@@ -1,0 +1,6 @@
+# .NET Build outputs
+[Bb]in/
+[Oo]bj/
+
+# Local databases / user data (if you don't want them tracked)
+Data/app.db
