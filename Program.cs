@@ -17,14 +17,19 @@ while (gameRunning)
 {
     Console.WriteLine("Guess a number between 1 and 100 or press 'Q' to quit:");
     var input = Console.ReadLine();
-    Console.WriteLine(input);
 
-    //Check if input is not a valid integer
+    if (input == "q" || input == "Q")
+    {
+        Console.WriteLine("Thanks for playing! Goodbye!");
+        break;
+    }
     if (!int.TryParse(input, out int guess))
     {
         Console.WriteLine("Invalid input. Please enter a valid number.");
         continue;
     }
+
+    guess_counter++;
 
     //Render the result message based on the guess
     string resultMessage = guess switch
@@ -35,7 +40,6 @@ while (gameRunning)
         _ => $"Congratulations! You've guessed the number {value} in {guess_counter} attempts."
     };
 
-    guess_counter++;
     Console.WriteLine(resultMessage);
     Thread.Sleep(1000); //Sleep a second to give the user time to read the result message
 
