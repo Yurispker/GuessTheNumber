@@ -1,5 +1,5 @@
 ﻿int value = new Random().Next(1, 100);
-ConsoleKeyInfo? start_key = null;
+ConsoleKeyInfo start_key = default;
 bool gameRunning = true;
 int guess_counter = 0;
 
@@ -7,7 +7,7 @@ Console.WriteLine("Welcome to the Guess the Number Game!");
 
 Thread.Sleep(1000); //Sleep for a second to give the user time to read the welcome message
 
-while (start_key?.Key != ConsoleKey.Enter)
+while (start_key.Key != ConsoleKey.Enter)
 {
     Console.WriteLine("Press Enter to start the game...");
     start_key = Console.ReadKey(true);
@@ -15,8 +15,9 @@ while (start_key?.Key != ConsoleKey.Enter)
 
 while (gameRunning)
 {
-    Console.WriteLine("Guess a number between 1 and 100:");
+    Console.WriteLine("Guess a number between 1 and 100 or press 'Q' to quit:");
     var input = Console.ReadLine();
+    Console.WriteLine(input);
 
     //Check if input is not a valid integer
     if (!int.TryParse(input, out int guess))
